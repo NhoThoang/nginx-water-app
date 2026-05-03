@@ -6,7 +6,7 @@ services:
     image: nhothoang/water-app-nginx:latest
     container_name: nginx_proxy
     ports:
-      - "80:80"
+      - "3450:80"
     volumes:
       - nginx_data:/var/cache/nginx
     networks:
