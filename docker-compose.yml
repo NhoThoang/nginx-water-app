@@ -1,0 +1,22 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nhothoang/water-app-nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - nginx_data:/var/cache/nginx
+    networks:
+      - app_network
+    restart: unless-stopped
+networks:
+  app_network:
+    driver: bridge
+    external: true
+volumes:
+  nginx_data:
+    driver: local
+    name: nginx_data
